@@ -1,4 +1,5 @@
 const $formulario = document.formulario;
+const localStorageIndex = localStorage.length
 /*
     - nombre
     - ciudad
@@ -44,6 +45,11 @@ function validarNombre(nombre){
     return '';
 }
 
+function guardarDatosEnLocalStorage (nombre, descripcion){
+    let key = 'usuario' + localStorageIndex;
+    localStorage.setItem (key, JSON.stringify({nombre: nombre, 'descripcion-regalo': descripcion}))
+}
+
 /* 
 # Event Bubbling
 : Demostracion.
@@ -71,6 +77,7 @@ function validarFormulario(event){
 
     if (esValido){
         $formulario.className = 'oculto';
+        guardarDatosEnLocalStorage(nombre, descripcionRegalo);
         document.querySelector('#exito').className = '';
         setTimeout(function(){ location.href = 'wishlist.html'}, 5000);
     }

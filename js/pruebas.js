@@ -63,4 +63,4 @@ function probarValidarRegalo (){
 probarValidarRegalo();
 probarValidarNombre();
 probarValidarCiudad();
-console.log("hola");
+
